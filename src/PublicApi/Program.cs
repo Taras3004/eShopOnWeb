@@ -85,6 +85,4 @@ app.UseFastEndpoints();
 app.UseSwaggerGen();
 
 app.Logger.LogInformation("LAUNCHING PublicApi");
-app.Run();
-
-public partial class Program { }
+await app.RunAsync();
