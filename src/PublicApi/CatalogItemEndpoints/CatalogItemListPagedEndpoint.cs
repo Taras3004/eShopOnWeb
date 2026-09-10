@@ -30,7 +30,10 @@ public class CatalogItemListPagedEndpoint(IRepository<CatalogItem> itemRepositor
 
     public override async Task<ListPagedCatalogItemResponse> ExecuteAsync(ListPagedCatalogItemRequest request, CancellationToken ct)
     {
-        await Task.Delay(1000, ct);
+        if(request.PageSize == 0)
+        {
+            throw new ArgumentException("Page size exception");
+        }
 
         var response = new ListPagedCatalogItemResponse(request.CorrelationId());
 
